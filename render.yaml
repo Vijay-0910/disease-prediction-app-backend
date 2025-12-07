@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: disease-prediction-app-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: HUGGING_FACE_API_KEY
+        sync: false
+      - key: AI_SERVICE_URL
+        value: http://localhost:8000
+      - key: PORT
+        value: 10000
